@@ -8,7 +8,7 @@ Install Django in addition to its requirements.txt
 then run:  
 Get working on code:
 ```
-git clone https://github.com/topie9/fid_kobby_kagan_codes.git  
+git clone https://github.com/issahi62/fid_kobby_kagan_codes.git  
 ```
 
 ### Using `virtualenv`
