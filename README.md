@@ -48,11 +48,12 @@ git commit -m "change message here"
 git push --set-upstream origin fix/your-feature
 ```
 
-## DATABASE 
+### DATABASE 
+```
 python3 manage.py makemigrations 
 python3 manage.py migrate 
 python3 createsuperuser
-
+```
 Create Merge Request using GitHub.
 
 ## TODOLIST  
