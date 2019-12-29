@@ -1,0 +1,277 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<style>
+    /*search box css start here*/
+    
+    .search-sec {
+        padding: 2rem;
+    }
+    
+    .search-slt {
+        display: block;
+        width: 100%;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #55595c;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        height: calc(3rem + 2px) !important;
+        border-radius: 0;
+    }
+    
+    .wrn-btn {
+        width: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: capitalize;
+        height: calc(3rem + 2px) !important;
+        border-radius: 0;
+    }
+    
+    @media (min-width: 992px) {
+        .search-sec {
+            position: relative;
+            top: -114px;
+            background: rgba(26, 70, 104, 0.51);
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .search-sec {
+            background: #1A4668;
+        }
+    }
+</style>
+<!-- Header -->
+<header id="header">
+    <div class="inner mdb-color blue-3">
+        <div class="content">
+            <h1>FidsAp</h1>
+            <h2>Care-free movers<br />
+            </h2>
+            <a href="#" class="button big alt"><span>Let's Move</span></a>
+        </div>
+        <a href="#" class="button hidden"><span>Let's Move</span></a>
+    </div>
+</header>
+
+
+
+<!-- Navbar -->
+
+<!--Carousel Wrapper-->
+<div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+    </ol>
+    <!--/.Indicators-->
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+        <!--First slide-->
+        <div class="carousel-item active">
+            <div class="view" style="background-image: url('{% static 'img/sample.jpg' %}'); background-repeat:no-repeat;background-size:cover">
+
+                <!-- Mask & flexbox options-->
+                <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+                    <!-- Content -->
+                    <div class="text-center white-text mx-5 wow fadeIn">
+                        <h1 class="mb-4">
+                            <strong></strong>
+                        </h1>
+
+                        <p>
+                            <strong></strong>
+                        </p>
+
+                        <p class="mb-4 d-none d-md-block">
+                            <strong></strong>
+                        </p>
+
+                        <a target="_blank" href="/" class="btn btn-outline-white btn-lg">
+                Care - free movers
+                <i class="fas fa-graduation-cap ml-2"></i>
+              </a>
+                    </div>
+                    <!-- Content -->
+
+                </div>
+                <!-- Mask & flexbox options-->
+
+            </div>
+        </div>
+        <!--/First slide-->
+
+
+
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+</div>
+<main>
+    <div class="container">
+
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark mdb-color pink-3 mt-2 mb-3">
+
+            <!-- Navbar brand -->
+            <span class="navbar-brand">Categories:</span>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="basicExampleNav">
+
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">All
+                <span class="sr-only">(current)</span>
+              </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index">Dresses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="detail1">Furniture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="detail2">Cleaning Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="detail2">Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team_members">Team Members</a>
+                    </li>
+                </ul>
+                <!-- Links -->
+
+                <form class="form-inline" role="search" action="s">
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                    </div>
+                </form>
+            </div>
+            <!-- Collapsible content -->
+
+        </nav>
+        <!--/.Navbar-->
+
+        <!--Section: Products v.3-->
+        <section class="text-center mb-4">
+
+            <div class="row wow fadeIn">
+
+                {% for item in object_list %}
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="card">
+
+                        <div class="view overlay">
+                            {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %} <img src="{{ item.image.url }}" class="card-img-top">
+                            <a href="{{ item.get_absolute_url }}">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+
+                        <div class="card-body text-center">
+                            <a href="" class="grey-text">
+                                <h5>{{ item.get_category_display }}</h5>
+                            </a>
+                            <h5>
+                                <strong>
+                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                      <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
+                    </a>
+                  </strong>
+                            </h5>
+
+                            <h4 class="font-weight-bold blue-text">
+                                <strong>&euro;
+                  {% if item.discount_price %}
+                  {{ item.discount_price }}
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+                  </strong>
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </section>
+        <!--Section: Products v.3-->
+
+        <!--Pagination-->
+
+        {% if is_paginated %}
+        <nav class="d-flex justify-content-center wow fadeIn">
+            <ul class="pagination pg-blue">
+
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+              <span class="sr-only">(current)</span>
+            </a>
+                </li>
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+
+    </div>
+
+    <div id="googleMap" style="width:100%;height:400px;"></div>
+    <script>
+        function myMap() {
+            var mapProp = {
+                center: new google.maps.LatLng(51.508742, -0.120850),
+                zoom: 5,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+</main>
+{% endblock content %}

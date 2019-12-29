@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<script>
+</script>
+
+<main>
+    <div class="container wow fadeIn">
+        <h2 class="my-5 h2 text-center">Item for Sale</h2>
+        <div class="row">
+            <div class="col-md-8 mb-4">
+                <div class="card">
+                    <form method="POST" class="card-body" , enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h3>Add your Item here</h3>
+                        {{form.as_p}}
+                        <div class='hideable_shipping_form'>
+                            <div class="md-form mb-5">
+                                <input type='submit' , name='Submit' , class='form-control' /></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
